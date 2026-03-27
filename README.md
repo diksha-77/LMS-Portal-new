@@ -1,79 +1,120 @@
 📚 Learning Management System (LMS)
-🚀 Overview
+🚀 Project Description
 
-The Learning Management System (LMS) is a full-stack web application designed to manage online courses, users, and learning resources efficiently. It provides features for both students and administrators to interact with educational content seamlessly.
+The Learning Management System (LMS) is a full-stack web application designed to streamline the management of online learning. It enables instructors to create and manage courses while allowing students to enroll, access materials, and track their progress in a centralized platform.
+
+🎯 Key Highlights
+Full-stack MERN application with RESTful API architecture
+Secure authentication and authorization using JWT
+Scalable database design using MongoDB Atlas
+Modular backend with MVC structure
+Responsive and user-friendly UI
+
 
 ✨ Features
-👤 User Authentication (Login/Register)
-📖 Course Management (Create, Update, Delete)
-🎓 Student Enrollment
-📂 Upload & Access Learning Materials
-📝 Assignment/Quiz Management
-📊 Dashboard for tracking progress
-🔐 Secure API with authentication
+👤 Authentication & Authorization
+User registration and login
+Role-based access (Admin / Student)
+JWT-based authentication
+
+
+📖 Course Management
+Create, update, and delete courses (Admin)
+View all available courses (Students)
+
+
+🎓 Enrollment System
+Students can enroll in courses
+Track enrolled courses
+
+📊 Dashboard
+Personalized user dashboard
+Course tracking and activity overview
+
+
 🛠️ Tech Stack
+Frontend
+React.js
+HTML5, CSS3
+JavaScript (ES6+)
 
-Frontend:
 
-HTML, CSS, JavaScript
-React.js (if used)
-
-Backend:
-
+Backend
 Node.js
 Express.js
 
-Database:
-
+Database
 MongoDB Atlas
 
-Other Tools:
-
-Git & GitHub
+Tools & Libraries
+Mongoose (ODM)
+JSON Web Token (JWT)
+dotenv
 Postman (API Testing)
 
 
+🏗️ Architecture
+
+The project follows a MVC (Model-View-Controller) architecture:
+
+server/
+│
+├── models/        # MongoDB schemas
+├── controllers/   # Application logic
+├── routes/        # API routes
+├── middleware/    # Auth & error handling
+├── config/        # DB configuration
+└── server.js      # Entry point
 📁 Project Structure
+
 LMS-Portal/
 │
-├── client/        # Frontend code
-├── server/        # Backend code
-├── models/        # Database schemas
-├── routes/        # API routes
-├── controllers/   # Business logic
-├── .env           # Environment variables
+├── client/            # React frontend
+│   ├── src/
+│   └── public/
+│
+├── server/            # Backend (Node + Express)
+│
+├── .env               # Environment variables
+├── package.json
 └── README.md
+
 ⚙️ Installation & Setup
-Clone the repository:
+1️⃣ Clone Repository
 git clone https://github.com/your-username/LMS-Portal.git
-Navigate to project directory:
 cd LMS-Portal
-Install dependencies:
-
-For backend:
-
+2️⃣ Backend Setup
 cd server
 npm install
 
-For frontend:
+Create .env file:
 
+PORT=5000
+MONGO_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_secret_key
+
+Run backend:
+
+npm run dev
+3️⃣ Frontend Setup
 cd client
 npm install
-Create a .env file in server folder and add:
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-Run the project:
-
-Backend:
-
 npm start
 
-Frontend:
-
-npm start
-🔗 API Endpoints (Sample)
+🔌 API Overview
+Auth Routes
 POST /api/auth/register → Register user
 POST /api/auth/login → Login user
-GET /api/courses → Get all courses
-POST /api/courses → Create course
+
+Course Routes
+GET /api/courses → Fetch all courses
+POST /api/courses → Create course (Admin)
+PUT /api/courses/:id → Update course
+DELETE /api/courses/:id → Delete course
+
+Enrollment Routes
+POST /api/enroll/:courseId → Enroll in course
+🔐 Security Features
+Password hashing using bcrypt
+JWT-based authentication
+Protected routes using middleware
